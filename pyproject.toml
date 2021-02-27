@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nsm"
+name = "noita_save_manager"
 version = "0.1.0"
 description = "Noita Save Manager, allows for backup and restoring of save files"
 authors = ["mcgillij <mcgillivray.jason@gmail.com>"]
@@ -24,7 +24,7 @@ classifiers = [
 include = [ "LICENSE", ]
 
 [tool.poetry.scripts]
-noita_save_manager = noita_save_manager.noita_save_manager:main
+noita_save_manager = 'noita_save_manager.noita_save_manager:main'
 
 [tool.poetry.dependencies]
 python = "^3.9"
