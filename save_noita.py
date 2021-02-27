@@ -1,12 +1,14 @@
 """ Noita Savegame Manager """
 import os
 import shutil
-import psutil
-
 from datetime import datetime
+
+import psutil
 import PySimpleGUI as sg
 
 SAVE_DIR = "save00"
+
+# sg Debug window
 print = sg.Print
 
 def is_noita_running():
@@ -17,6 +19,7 @@ def is_noita_running():
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
     return False
+
 
 def find_saves(dir_path):
     saves = []
@@ -74,7 +77,7 @@ if __name__ == "__main__":
 
     # find saves
     saves_list = find_saves(cwd)
-    
+
     # Check if on Windows
     if os.name == 'nt':
         print("Running in Windows")
