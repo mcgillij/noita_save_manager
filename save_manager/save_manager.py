@@ -7,9 +7,9 @@ import psutil
 import PySimpleGUI as sg
 
 SAVE_DIR = "save00"
-
+DEBUG = True
 # sg Debug window
-if os.environ.get("DEBUG"):
+if os.environ.get("DEBUG") or DEBUG:
     print = sg.Print
 
 

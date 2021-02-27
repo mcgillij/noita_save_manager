@@ -1,4 +1,12 @@
 [[package]]
+name = "altgraph"
+version = "0.17"
+description = "Python graph (network) package"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "appdirs"
 version = "1.4.4"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -70,6 +78,14 @@ pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
 
 [[package]]
+name = "future"
+version = "0.18.2"
+description = "Clean single-source support for Python 3 and 2"
+category = "dev"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "isort"
 version = "5.7.0"
 description = "A Python utility / library to sort Python imports."
@@ -89,6 +105,17 @@ description = "A fast and thorough lazy object proxy."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "macholib"
+version = "1.14"
+description = "Mach-O header analysis and editing"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+altgraph = ">=0.15"
 
 [[package]]
 name = "mccabe"
@@ -113,6 +140,17 @@ description = "Utility library for gitignore style pattern matching of file path
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "pefile"
+version = "2019.4.18"
+description = "Python PE parsing module"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+future = "*"
 
 [[package]]
 name = "psutil"
@@ -142,6 +180,33 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
+name = "pyinstaller"
+version = "4.2"
+description = "PyInstaller bundles a Python application and all its dependencies into a single package."
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+altgraph = "*"
+macholib = {version = ">=1.8", markers = "sys_platform == \"darwin\""}
+pefile = {version = ">=2017.8.1", markers = "sys_platform == \"win32\""}
+pyinstaller-hooks-contrib = ">=2020.6"
+pywin32-ctypes = {version = ">=0.2.0", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+encryption = ["tinyaes (>=1.0.0)"]
+hook_testing = ["pytest (>=2.7.3)", "execnet (>=1.5.0)", "psutil"]
+
+[[package]]
+name = "pyinstaller-hooks-contrib"
+version = "2020.11"
+description = "Community maintained hooks for PyInstaller"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pylint"
 version = "2.7.1"
 description = "python code static checker"
@@ -164,6 +229,14 @@ name = "pysimplegui"
 version = "4.34.0"
 description = "Python GUIs for Humans. Launched in 2018. It's 2021 & PySimpleGUI is an ACTIVE project. Super-simple to create custom GUI's. 300 Demo programs & Cookbook for rapid start. Extensive documentation. Main docs at www.PySimpleGUI.org. Your success is the focus. Examples using Machine Learning (GUI, OpenCV Integration,  Chatterbot), Rainmeter Style Desktop Widgets, Matplotlib + Pyplot, PIL support, add GUI to command line scripts, PDF & Image Viewers. Great for beginners & advanced GUI programmers"
 category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pywin32-ctypes"
+version = "0.2.0"
+description = ""
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -210,9 +283,13 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e2cf36e4e45318b97cba23e579b9d6aadcdbb6cb324753bee7acf6be58994256"
+content-hash = "e7719f40415ed382bea3c696f42158b35b1e68f388df7e7304bf613a3ee8ce82"
 
 [metadata.files]
+altgraph = [
+    {file = "altgraph-0.17-py2.py3-none-any.whl", hash = "sha256:c623e5f3408ca61d4016f23a681b9adb100802ca3e3da5e718915a9e4052cebe"},
+    {file = "altgraph-0.17.tar.gz", hash = "sha256:1f05a47122542f97028caf78775a095fbe6a2699b5089de8477eb583167d69aa"},
+]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
     {file = "appdirs-1.4.4.tar.gz", hash = "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"},
@@ -235,6 +312,9 @@ colorama = [
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
     {file = "flake8-3.8.4.tar.gz", hash = "sha256:aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"},
+]
+future = [
+    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
 ]
 isort = [
     {file = "isort-5.7.0-py3-none-any.whl", hash = "sha256:fff4f0c04e1825522ce6949973e83110a6e907750cd92d128b0d14aaaadbffdc"},
@@ -266,6 +346,10 @@ lazy-object-proxy = [
     {file = "lazy_object_proxy-1.5.2-cp39-cp39-win32.whl", hash = "sha256:ef3f5e288aa57b73b034ce9c1f1ac753d968f9069cd0742d1d69c698a0167166"},
     {file = "lazy_object_proxy-1.5.2-cp39-cp39-win_amd64.whl", hash = "sha256:37d9c34b96cca6787fe014aeb651217944a967a5b165e2cacb6b858d2997ab84"},
 ]
+macholib = [
+    {file = "macholib-1.14-py2.py3-none-any.whl", hash = "sha256:c500f02867515e6c60a27875b408920d18332ddf96b4035ef03beddd782d4281"},
+    {file = "macholib-1.14.tar.gz", hash = "sha256:0c436bc847e7b1d9bda0560351bf76d7caf930fb585a828d13608839ef42c432"},
+]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
@@ -277,6 +361,9 @@ mypy-extensions = [
 pathspec = [
     {file = "pathspec-0.8.1-py2.py3-none-any.whl", hash = "sha256:aa0cb481c4041bf52ffa7b0d8fa6cd3e88a2ca4879c533c9153882ee2556790d"},
     {file = "pathspec-0.8.1.tar.gz", hash = "sha256:86379d6b86d75816baba717e64b1a3a3469deb93bb76d613c9ce79edc5cb68fd"},
+]
+pefile = [
+    {file = "pefile-2019.4.18.tar.gz", hash = "sha256:a5d6e8305c6b210849b47a6174ddf9c452b2888340b8177874b862ba6c207645"},
 ]
 psutil = [
     {file = "psutil-5.8.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:0066a82f7b1b37d334e68697faba68e5ad5e858279fd6351c8ca6024e8d6ba64"},
@@ -316,6 +403,13 @@ pyflakes = [
     {file = "pyflakes-2.2.0-py2.py3-none-any.whl", hash = "sha256:0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92"},
     {file = "pyflakes-2.2.0.tar.gz", hash = "sha256:35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"},
 ]
+pyinstaller = [
+    {file = "pyinstaller-4.2.tar.gz", hash = "sha256:f5c0eeb2aa663cce9a5404292c0195011fa500a6501c873a466b2e8cad3c950c"},
+]
+pyinstaller-hooks-contrib = [
+    {file = "pyinstaller-hooks-contrib-2020.11.tar.gz", hash = "sha256:fc3290a2ca337d1d58c579c223201360bfe74caed6454eaf5a2550b77dbda45c"},
+    {file = "pyinstaller_hooks_contrib-2020.11-py2.py3-none-any.whl", hash = "sha256:fa8280b79d8a2b267a2e43ff44f73b3e4a68fc8d205b8d34e8e06c960f7c2fcf"},
+]
 pylint = [
     {file = "pylint-2.7.1-py3-none-any.whl", hash = "sha256:a251b238db462b71d25948f940568bb5b3ae0e37dbaa05e10523f54f83e6cc7e"},
     {file = "pylint-2.7.1.tar.gz", hash = "sha256:81ce108f6342421169ea039ff1f528208c99d2e5a9c4ca95cfc5291be6dfd982"},
@@ -323,6 +417,10 @@ pylint = [
 pysimplegui = [
     {file = "PySimpleGUI-4.34.0-py3-none-any.whl", hash = "sha256:b7b986512d77bf50a92207579bed4cf7f2f287ce14a82f4b57c5f368bca54c9c"},
     {file = "PySimpleGUI-4.34.0.tar.gz", hash = "sha256:1169d3434137242eca2c95ca13ec21de398990563e8f58a10b581ebd127b13cd"},
+]
+pywin32-ctypes = [
+    {file = "pywin32-ctypes-0.2.0.tar.gz", hash = "sha256:24ffc3b341d457d48e8922352130cf2644024a4ff09762a2261fd34c36ee5942"},
+    {file = "pywin32_ctypes-0.2.0-py2.py3-none-any.whl", hash = "sha256:9dc2d991b3479cc2df15930958b674a48a227d5361d413827a4cfd0b5876fc98"},
 ]
 regex = [
     {file = "regex-2020.11.13-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:8b882a78c320478b12ff024e81dc7d43c1462aa4a3341c754ee65d857a521f85"},
