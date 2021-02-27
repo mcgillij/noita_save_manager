@@ -1,11 +1,22 @@
 """ Noita Savegame Manager """
 import os
 import shutil
+import psutil
+
 from datetime import datetime
 import PySimpleGUI as sg
 
 SAVE_DIR = "save00"
+print = sg.Print
 
+def is_noita_running():
+    for process in psutil.process_iter():
+        try:
+            if 'noita'.lower() in process.name().lower():
+                return True
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    return False
 
 def find_saves(dir_path):
     saves = []
@@ -63,9 +74,15 @@ if __name__ == "__main__":
 
     # find saves
     saves_list = find_saves(cwd)
+    
+    # Check if on Windows
+    if os.name == 'nt':
+        print("Running in Windows")
+        USER_PATH = R"C:\Users\%username%\AppData\LocalLow\Nolla_Games_Noita"
+    else:
+        print("Running in Linux")
+        USER_PATH = "/home/j/gits/save_noita"
 
-    USER_PATH = R"% APPDATA %\LocalLow\Nolla_Games_Noita"
-    #USER_PATH = "/home/j/gits/save_noita"
     # All the stuff inside your window.
     layout = [
         [
@@ -93,7 +110,9 @@ if __name__ == "__main__":
         if event in (sg.WIN_CLOSED, "Exit"):  # if user closes window or clicks Exit
             # exit
             break
-
+        if is_noita_running():
+            print("please close noita before using this")
+            break
         if event == "Select":
             # restore backup
             print("-------in Select -----")
