@@ -127,7 +127,7 @@ def main():
         if is_noita_running():
             # Noita must not be running during backup
             print("please close noita before using this")
-            break
+            continue
         if event == "Select":
             # restore backup
             if values["-listbox-"]:
