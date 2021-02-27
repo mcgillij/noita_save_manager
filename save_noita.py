@@ -48,46 +48,40 @@ def extract_save(save_dir, backup_dir, zip_filename):
 
 
 def refresh_save_list():
-    window["-listbox-"].update(find_saves(values["-BACKUPS-"]))
+    window["-listbox-"].update(find_saves(cwd))
 
 
 if __name__ == "__main__":
 
+    cwd = os.getcwd()
     sg.theme("DarkBlue")  # Add a touch of color
-    sg.user_settings_filename(path=".")
+    sg.user_settings_filename(path=f"{cwd}/settings")
 
     settings = sg.UserSettings()
     settings.load()
     print(settings)
 
     # find saves
-    saves_list = find_saves(settings.get("-backups-folder-name-"))
+    saves_list = find_saves(cwd)
 
+    USER_PATH = R"% APPDATA %\LocalLow\Nolla_Games_Noita"
+    #USER_PATH = "/home/j/gits/save_noita"
     # All the stuff inside your window.
     layout = [
         [
-            sg.Text("Save File Directory: "),
+            sg.Text("Noita Directory: "),
             sg.Input(
-                settings.get("-folder-name-", ""),
+                settings.get("-folder-name-", os.path.expandvars(USER_PATH)),
                 key="-IN-",
                 readonly=True),
             sg.FolderBrowse(),
         ],
-        [
-            sg.Text("Backups Directory: "),
-            sg.Input(
-                settings.get("-backups-folder-name-", ""),
-                key="-BACKUPS-",
-                readonly=True,
-            ),
-            sg.FolderBrowse(),
-        ],
-        [sg.Button("Backup")],
+        [sg.Button("Backup"), sg.Text('<--- backs up current save')],
         [sg.Listbox(
             values=saves_list,
             size=(50, 6),
             key="-listbox-"),
-            sg.Button("Select")],
+            sg.Button("Select"), sg.Text('<--- restores this backup to active save')],
         [sg.Button("Exit")],
     ]
 
@@ -106,7 +100,7 @@ if __name__ == "__main__":
             backup_save_folder(values["-IN-"])
             extract_save(
                 values["-IN-"],
-                values["-BACKUPS-"],
+                cwd,
                 values["-listbox-"].pop()
             )
         elif event == "Backup":
@@ -116,6 +110,5 @@ if __name__ == "__main__":
         print(f"------event: {event}, values: {values}")
         print("filebrowsed to", values["-IN-"])
         settings["-folder-name-"] = values["-IN-"]
-        settings["-backups-folder-name-"] = values["-BACKUPS-"]
 
     window.close()
