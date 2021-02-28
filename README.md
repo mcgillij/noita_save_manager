@@ -23,3 +23,14 @@ Currently this version has a debugging window enabled to make sure everything's 
 # Download
 
 You can grab the latest release https://github.com/mcgillij/noita_save_manager/releases/download/0.1.0/save_manager_0.1.0.zip
+
+# Building from source
+
+If you want to build your own binary/ source distribution / wheel, you can use the following steps. Uses **poetry** for dependency management.
+
+``` bash
+poetry install
+poetry run pyinstaller -F --noconsole save_manager/save_manager.py
+```
+
+This will plop out a binary for you in the `dist/` folder.
