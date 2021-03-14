@@ -1,6 +1,6 @@
 # Noita save manager
 
-Small save-game manager written for usage with Noita.
+Small save-game manager written for usage with Noita works in Linux or Windows.
 
 # Screenshot
 
@@ -16,11 +16,20 @@ Small save-game manager written for usage with Noita.
 Currently you cannot use this tool to delete / remove saves or backups.
 It will always create a backup in the Noita folder prior to restoring. So it won't overwrite / delete anything.
 
-# Debugging
+# Installing with Pip, Pipenv or Poetry
 
-Currently this version has a debugging window enabled to make sure everything's working correctly.
+``` bash
+pip install noita-save-manager
+pipenv install noita-save-manager
+poetry add noita-save-manager
+```
+# Running
 
-# Download
+``` bash
+noita_save_manager
+```
+
+## Pre-Built Windows client
 
 You can grab the latest release https://github.com/mcgillij/noita_save_manager/releases/download/0.1.0/save_manager_0.1.0.zip
 

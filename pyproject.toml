@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "save_manager"
-version = "0.1.0"
+name = "noita-save-manager"
+version = "0.1.1"
 description = "Noita Save Manager, allows for backup and restoring of save files"
 authors = ["mcgillij <mcgillivray.jason@gmail.com>"]
 license = "MIT"
@@ -24,7 +24,7 @@ classifiers = [
 include = [ "LICENSE", ]
 
 [tool.poetry.scripts]
-save_manager = 'save_manager.save_manager:main'
+noita_save_manager = 'noita_save_manager.save_manager:main'
 
 [tool.poetry.dependencies]
 python = "^3.9"
