@@ -39,7 +39,7 @@ If you want to build your own binary/ source distribution / wheel, you can use t
 
 ``` bash
 poetry install
-poetry run pyinstaller -F --noconsole save_manager/save_manager.py
+poetry run pyinstaller -F --noconsole src/noita_save_manager/save_manager.py
 ```
 
 This will plop out a binary for you in the `dist/` folder.
