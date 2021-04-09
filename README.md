@@ -2,6 +2,8 @@
 
 Small save-game manager written for usage with Noita works in Linux or Windows.
 
+[![Downloads](https://static.pepy.tech/personalized-badge/noita-save-manager?period=total&units=international_system&left_color=blue&right_color=green&left_text=Downloads)](https://pepy.tech/project/noita-save-manager)
+
 # Screenshot
 
 ![Noita save manager](https://raw.githubusercontent.com/mcgillij/noita_save_manager/main/images/noita_save_manager.png)
