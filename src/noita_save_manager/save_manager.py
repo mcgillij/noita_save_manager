@@ -16,7 +16,7 @@ if os.environ.get("DEBUG") or DEBUG:
 def is_noita_running():
     for process in psutil.process_iter():
         try:
-            if "noita".lower() in process.name().lower():
+            if "noita.exe".lower() in process.name().lower():
                 return True
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
@@ -41,9 +41,7 @@ def backup_save_folder(save_path):
     if os.path.exists(save_dirname):
         shutil.move(save_dirname, f"{save_path}/{backup_dirname}")
         # create empty dir in it's place.
-        make_save_dir(save_dirname)
-    else:
-        make_save_dir(save_dirname)
+    make_save_dir(save_dirname)
 
 
 def make_save_dir(save_dirname):
