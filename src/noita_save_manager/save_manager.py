@@ -13,14 +13,14 @@ if os.environ.get("DEBUG") or DEBUG:
     print = sg.Print
 
 
-def is_noita_running():
-    for process in psutil.process_iter():
-        try:
-            if "noita.exe".lower() in process.name().lower():
-                return True
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            pass
-    return False
+# def is_noita_running():
+#    for process in psutil.process_iter():
+#        try:
+#            if "noita.exe".lower() in process.name().lower():
+#                return True
+#        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+#            pass
+#    return False
 
 
 def find_save_zips(dir_path):
@@ -122,10 +122,10 @@ def main():
         if event in (sg.WIN_CLOSED, "Exit"):  # if user closes window or clicks Exit
             # exit
             break
-        if is_noita_running():
-            # Noita must not be running during backup
-            print("please close noita before using this")
-            continue
+        # if is_noita_running():
+        #    # Noita must not be running during backup
+        #    print("please close noita before using this")
+        #    continue
         if event == "Select":
             # restore backup
             if values["-listbox-"]:
