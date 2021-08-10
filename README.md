@@ -33,7 +33,7 @@ noita_save_manager
 
 ## Pre-Built Windows client
 
-You can grab the latest release https://github.com/mcgillij/noita_save_manager/releases/download/0.1.0/save_manager_0.1.0.zip
+You can grab the latest release https://github.com/mcgillij/noita_save_manager/releases/download/0.1.4/save_manager_0.1.4.zip
 
 # Building from source
 
