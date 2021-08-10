@@ -9,7 +9,7 @@ Small save-game manager written for usage with Noita works in Linux or Windows.
 ![Noita save manager](https://raw.githubusercontent.com/mcgillij/noita_save_manager/main/images/noita_save_manager.png)
 
 # Features
-* Check to see if Noita is running
+* Check to see if Noita is running (currently commented out, to work with noita together)
 * Backup active save
 * Restore from backup
 * Non destructive
