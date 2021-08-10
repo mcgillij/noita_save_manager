@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "noita-save-manager"
-version = "0.1.3"
+version = "0.1.4"
 description = "Noita Save Manager, allows for backup and restoring of save files"
 authors = ["mcgillij <mcgillivray.jason@gmail.com>"]
 license = "MIT"
