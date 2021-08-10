@@ -3,7 +3,7 @@ import os
 import shutil
 from datetime import datetime
 
-import psutil
+# import psutil
 import PySimpleGUI as sg
 
 SAVE_DIR = "save00"

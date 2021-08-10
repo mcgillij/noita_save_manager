@@ -29,7 +29,6 @@ noita_save_manager = 'noita_save_manager.save_manager:main'
 [tool.poetry.dependencies]
 python = "^3.9"
 PySimpleGUI = "^4.34.0"
-psutil = "^5.8.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.7.1"
