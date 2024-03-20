@@ -33,7 +33,7 @@ PySimpleGUI = "^4.34.0"
 [tool.poetry.dev-dependencies]
 pylint = "^2.7.1"
 flake8 = "^3.8.4"
-black = "^20.8b1"
+black = "^24.3"
 pyinstaller = "^4.2"
 
 [build-system]
